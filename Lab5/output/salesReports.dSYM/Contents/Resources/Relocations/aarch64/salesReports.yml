@@ -1,0 +1,9 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/samgrimsley/Documents/GitHub/EECS348/Lab5/output/salesReports'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _swapVals, symObjAddr: 0x0, symBinAddr: 0x100003C08, symSize: 0x3C }
+  - { offsetInCU: 0x42, offset: 0x42, size: 0x8, addend: 0x0, symName: _swapVals, symObjAddr: 0x0, symBinAddr: 0x100003C08, symSize: 0x3C }
+  - { offsetInCU: 0x82, offset: 0x82, size: 0x8, addend: 0x0, symName: _sort, symObjAddr: 0x3C, symBinAddr: 0x100003C44, symSize: 0xEC }
+  - { offsetInCU: 0xDE, offset: 0xDE, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x128, symBinAddr: 0x100003D30, symSize: 0x198 }
+...
