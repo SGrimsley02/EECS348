@@ -34,18 +34,18 @@ void getPlays(int score, int tds, int extra1, int extra2, int fg, int safety, in
 
 // Run the program
 int main(){
-    int score; //Score to be entered
-    int duplicates[10][10][10][10][10] = {0}; //Duplicate array originally all 0s (ie, no combos yet)
-
-    printf("Enter score: "); //Get a score
+    int score = 0; //Score to be entered
+    while (1){
+    printf("Enter score (enter 0 or 1 to stop): "); //Get a score
     scanf("%d", &score);
-
-    if (score == 1 || score < 0){ //Check if score is possible
-        printf("Impossible score\n");
+    
+    if (score <= 1){ //Check if score is possible
+        printf("Ending program\n");
         return 0;
     }
 
+    int duplicates[10][10][10][10][10] = {0}; //Duplicate array originally all 0s (ie, no combos yet)
     //Find all play combos. Initialized to 0s since no plays to start with
     getPlays(score, 0,0,0,0,0, duplicates);
-    return 0;
+    }
 }
