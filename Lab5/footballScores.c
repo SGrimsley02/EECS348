@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Recursive call
 void getPlays(int score, int tds, int extra1, int extra2, int fg, int safety, int duplicates[10][10][10][10][10]){
     /* Recursively find all possible scoring combinations that can result in a given score, ignoring duplicates */
 
@@ -31,7 +32,7 @@ void getPlays(int score, int tds, int extra1, int extra2, int fg, int safety, in
     }
 }
 
-
+// Run the program
 int main(){
     int score; //Score to be entered
     int duplicates[10][10][10][10][10] = {0}; //Duplicate array originally all 0s (ie, no combos yet)
