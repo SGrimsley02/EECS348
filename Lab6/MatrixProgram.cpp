@@ -56,6 +56,41 @@ int printMatrix(int** matrix, int size){
     return 0;
 }
 
+int** matrixAdd(int** matrix1, int** matrix2, int size){
+    //Initialize empty matrix
+    int** addMatrix = new int*[size];
+    for (int i=0; i<size; ++i){
+        addMatrix[i] = new int[size];
+    }
+    //Perform addition
+    for (int i=0; i<size; i++){
+        for (int j=0; j<size; j++){
+            addMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+    
+    return addMatrix;
+}
+
+int** matrixMult(int** matrix1, int** matrix2, int size){
+    //Initialize empty matrix
+    int** multMatrix = new int*[size];
+    for (int i=0; i<size; ++i){
+        multMatrix[i] = new int[size];
+    }
+    //Perform matrix multiplication
+    for (int i=0; i<size; ++i){
+        for (int j=0; j<size; ++j){
+            for (int k=0; k<size; ++k){
+                multMatrix[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+    //Return new matrix
+    return multMatrix;
+}
+
+
 int main(){
 
     cout << "1. Get matrices\n";
@@ -76,15 +111,16 @@ int main(){
 
 
     cout << "3. Add two matrices\n";
-
+    int** addMatrix = matrixAdd(matrix1, matrix2, size);
+    printMatrix(addMatrix, size);
 
 
     cout << "4. Multiply two matrices\n";
-
+    int** multMatrix = matrixMult(matrix1, matrix2, size);
+    printMatrix(multMatrix, size);
 
 
     cout << "5. Subtract Matrix2 from Matrix1\n";
-
 
 
 
