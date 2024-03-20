@@ -123,6 +123,21 @@ int getMax(int** matrix, int size){
     return max;
 }
 
+int swapVals(int** matrix, int row1, int col1, int row2, int col2){
+    int temp = matrix[row1][col1];
+    matrix[row1][col1] = matrix[row2][col2];
+    matrix[row2][col2] = temp;
+    return 0;
+}
+int matrixTrans(int** matrix, int size){
+    for (int i=0; i<size; i++){
+        for (int j=i; j<size; j++){
+            swapVals(matrix, i, j, j, i);
+        }
+    }
+    return 0;
+}
+
 int main(){
 
     cout << "1. Get matrices\n";
@@ -157,7 +172,6 @@ int main(){
     printMatrix(subMatrix, size);
 
 
-
     cout << "6. Update first matrix\n";
     int row, col, val;
     cout << "Row: ";
@@ -175,15 +189,13 @@ int main(){
 
 
     cout << "7. Get max of matrix\n";
-    
     int max = getMax(matrix1, size);
     cout << max << endl;
     
 
-
-
     cout << "8. Transpose matrix\n";
-    
+    matrixTrans(matrix1, size);
+    printMatrix(matrix1, size);
 
     return 0;
 }
