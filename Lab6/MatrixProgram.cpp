@@ -51,9 +51,8 @@ int printMatrix(int** matrix, int size){
         for (int j = 0; j < size; ++j) { //for col
             cout << matrix[i][j] << " "; //add to the output
         }
-        cout << endl;
+        cout << endl; //next line
     }
-    //end output
     return 0;
 }
 
