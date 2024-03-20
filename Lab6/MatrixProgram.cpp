@@ -3,17 +3,20 @@
 using namespace std;
 
 int getMatrixSize(const string& filename){
+    //Open file
     ifstream inputFile(filename);
-    if (!inputFile.is_open()) {
+    if (!inputFile.is_open()) { //Check that it opened
         cerr << "Error opening file." << endl;
         return 0; // Return 0 if file cannot be opened
     }
-
+    //Get size
     int size;
     inputFile >> size;
     inputFile.close();
+    //Return size
     return size;
 }
+
 int** getMatrix(string filename, int size, int matrixNum){
     //Initialize an empty matrix of size
     int** matrix = new int*[size];
@@ -43,26 +46,34 @@ int** getMatrix(string filename, int size, int matrixNum){
     return matrix;
 }
 
-
+int printMatrix(int** matrix, int size){
+    for (int i = 0; i < size; ++i) { //for row
+        for (int j = 0; j < size; ++j) { //for col
+            cout << matrix[i][j] << " "; //add to the output
+        }
+        cout << endl;
+    }
+    //end output
+    return 0;
+}
 
 int main(){
-    
-    
+
     cout << "1. Get matrices\n";
 
     string filename;
     cout << "Filename: ";
     cin >> filename;
-
-    static int size = getMatrixSize("test.txt");
+    static int size = getMatrixSize(filename);
     int** matrix1 = getMatrix(filename, size, 1);
     int** matrix2 = getMatrix(filename, size, 2);
     
 
     cout << "2. Print matrices\n";
-
-
-
+    cout << "Matrix 1:\n";
+    printMatrix(matrix1, size);
+    cout << "Matrix 2:\n";
+    printMatrix(matrix2, size);
 
 
     cout << "3. Add two matrices\n";
