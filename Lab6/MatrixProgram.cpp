@@ -49,7 +49,7 @@ int** getMatrix(string filename, int size, int matrixNum){
 int printMatrix(int** matrix, int size){
     for (int i = 0; i < size; ++i) { //for row
         for (int j = 0; j < size; ++j) { //for col
-            cout << matrix[i][j] << " "; //add to the output
+            cout << matrix[i][j] << "\t"; //add to the output
         }
         cout << endl; //next line
     }
@@ -146,6 +146,9 @@ int main(){
     cout << "Filename: ";
     cin >> filename;
     static int size = getMatrixSize(filename);
+    if (size == 0){
+        return 1;
+    }
     int** matrix1 = getMatrix(filename, size, 1);
     int** matrix2 = getMatrix(filename, size, 2);
     
