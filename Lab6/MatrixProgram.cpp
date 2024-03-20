@@ -90,6 +90,38 @@ int** matrixMult(int** matrix1, int** matrix2, int size){
     return multMatrix;
 }
 
+int** matrixSub(int** matrix1, int** matrix2, int size){
+    //Initialize empty matrix
+    int** subMatrix = new int*[size];
+    for (int i=0; i<size; ++i){
+        subMatrix[i] = new int[size];
+    }
+    //Perform addition
+    for (int i=0; i<size; i++){
+        for (int j=0; j<size; j++){
+            subMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
+        }
+    }
+    
+    return subMatrix;
+}
+
+int updateMatrix(int** matrix, int row, int col, int size, int val){
+    matrix[row-1][col-1] = val;
+    return 0;
+}
+
+int getMax(int** matrix, int size){
+    int max = matrix[0][0];
+    for (int i=0; i<size; i++){
+        for (int j=0; j<size; j++){
+            if (matrix[i][j] > max){
+                max = matrix[i][j];
+            }
+        }
+    }
+    return max;
+}
 
 int main(){
 
@@ -121,21 +153,32 @@ int main(){
 
 
     cout << "5. Subtract Matrix2 from Matrix1\n";
-
+    int** subMatrix = matrixSub(matrix1, matrix2, size);
+    printMatrix(subMatrix, size);
 
 
 
     cout << "6. Update first matrix\n";
-
-
-
-
+    int row, col, val;
+    cout << "Row: ";
+    cin >> row;
+    cout << "Column: ";
+    cin >> col;
+    cout << "Value: ";
+    cin >> val;
+    if (row > size || col > size){
+        cout << "Invalid index";
+    } else {
+        updateMatrix(matrix1, row, col, size, val);
+        printMatrix(matrix1, size);
+    }
 
 
     cout << "7. Get max of matrix\n";
-
-
-
+    
+    int max = getMax(matrix1, size);
+    cout << max << endl;
+    
 
 
 
